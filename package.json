@@ -1,0 +1,15 @@
+{
+  "name": "pcelarska-kuca-dinic",
+  "version": "1.0.2",
+  "private": true,
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "start": "eleventy --serve --watch"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
