@@ -1,0 +1,58 @@
+---
+layout: layouts/base.njk
+title: Početna
+---
+<div class="row g-4 align-items-center">
+  <div class="col-lg-6">
+    <h1 class="display-5 fw-bold">Prirodni pčelinji proizvodi iz Negotina</h1>
+    <p class="lead">Med, propolis, vosak i još mnogo toga — direktno sa naše farme pčela.</p>
+    <a href="/products" class="btn btn-warning btn-lg">Pogledaj proizvode</a>
+  </div>
+  <div class="col-lg-6">
+    <img src="/static/img/hero.jpg" alt="Pčelarstvo" class="img-fluid rounded-4 shadow">
+  </div>
+</div>
+
+<hr class="my-5">
+<h2 class="mb-3">Najnoviji blog</h2>
+<div class="row g-4">
+  {% set latest = collections.posts | slice(0,3) %}
+  {% if latest.length %}
+    {% for p in latest %}
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{{ p.url }}">{{ p.data.title }}</a></h5>
+          <p class="card-text text-muted small">{{ p.date | date('yyyy-LL-dd') }}</p>
+          <p class="card-text">{{ (p.templateContent | striptags) | truncate(150) }}</p>
+          <a href="{{ p.url }}" class="btn btn-outline-primary">Čitaj</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p>Još nema objava.</p>
+  {% endif %}
+</div>
+
+<h2 class="mt-5 mb-3">Novi video</h2>
+<div class="row g-4">
+  {% set vids = collections.videos | slice(0,3) %}
+  {% if vids.length %}
+    {% for v in vids %}
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="ratio ratio-16x9">
+          <iframe src="{{ v.data.embed_url }}" title="{{ v.data.title }}" allowfullscreen></iframe>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ v.data.title }}</h5>
+          <p class="text-muted small">{{ v.date | date('yyyy-LL-dd') }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p>Još nema video sadržaja.</p>
+  {% endif %}
+</div>

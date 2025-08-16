@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+title: Blog
+---
+<h1 class="mb-4">Blog</h1>
+<div class="vstack gap-4">
+  {% if collections.posts.length %}
+    {% for p in collections.posts %}
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3><a href="{{ p.url }}" class="text-decoration-none">{{ p.data.title }}</a></h3>
+        <p class="text-muted small">{{ p.date | date('yyyy-LL-dd') }}</p>
+        <p>{{ (p.templateContent | striptags) | truncate(220) }}</p>
+        <a href="{{ p.url }}" class="btn btn-outline-secondary">Čitaj dalje</a>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p>Još nema objava.</p>
+  {% endif %}
+</div>

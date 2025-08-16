@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+title: Video
+---
+<h1 class="mb-4">Video</h1>
+<div class="row g-4">
+  {% if collections.videos.length %}
+    {% for v in collections.videos %}
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="ratio ratio-16x9">
+          <iframe src="{{ v.data.embed_url }}" title="{{ v.data.title }}" allowfullscreen></iframe>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ v.data.title }}</h5>
+          <p class="card-text">{{ v.data.description }}</p>
+          <p class="text-muted small">{{ v.date | date('yyyy-LL-dd') }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p>Još nema video sadržaja.</p>
+  {% endif %}
+</div>

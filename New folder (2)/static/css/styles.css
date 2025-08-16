@@ -1,0 +1,8 @@
+:root{
+  --honey:#f6c453;
+  --amber:#ffaa00;
+}
+.navbar{ background: linear-gradient(90deg,#2b2b2b,#1e1e1e); }
+.btn-warning{ background-color: var(--honey); border-color: var(--honey); }
+footer .btn{ border-radius: 999px; }
+img.rounded-4{ border-radius: 1.25rem!important; }

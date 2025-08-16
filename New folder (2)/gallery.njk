@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+title: Galerija
+---
+<h1 class="mb-4">Galerija</h1>
+<div class="row g-3">
+  {% for i in [1,2,3,4,5,6] %}
+  <div class="col-6 col-md-4">
+    <img src="/static/img/gallery_{{ i }}.jpg" class="img-fluid rounded-3 shadow-sm" alt="Pčelinjak slika {{ i }}">
+  </div>
+  {% endfor %}
+</div>
+<p class="text-muted mt-3">Svoje fotografije dodaj u <code>static/img</code>.</p>
